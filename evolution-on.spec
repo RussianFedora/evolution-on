@@ -50,7 +50,12 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 %files
 %{_datadir}/GConf/gsettings/%{name}.convert
 %{_datadir}/glib-2.0/schemas/*.xml
+%if 0%{?fedora} <= 21
 %{_libdir}/evolution/*/plugins/*
+%else
+%{_libdir}/evolution/plugins/*
+%endif
+
 
 %changelog
 * Thu Oct  2 2014 Arkady L. Shane <ashejn@russianfedora.ru> - 0.0.9-0.1.git1fa33facea1.R
